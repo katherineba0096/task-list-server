@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express()
-const tareas = require('./tareas.json')
+const tareas = require('./tareas');
+const ListViewRouter = require("./list-view-router");
+const ListEditRouter = require("./list-edit-route");
 const port = 8000;
 app.use(express.json())
 
-
-
-app.get('/tareas', (req, res) => {
+app.use(ListViewRouter)
+app.use(ListEditRouter)
+/* app.get('/tareas', (req, res) => {
     res.status(200).send(tareas)
-})
+}) */
 
 
 
